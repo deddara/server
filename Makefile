@@ -1,7 +1,7 @@
 NAME = ft_server
 VERSION = latest
 
-.PHONY: build
+.PHONY: build 
 build:
 	docker build -t $(NAME):$(VERSION) .
 
