@@ -1,17 +1,4 @@
-wp_db = 'wordpress'
-phpmyadmin_db = 'phpmyadmin'
-username = 'admin'
-userpassword = 'admin'
-hostname = 'localhost'
-
-service mysql start
-
-mysql -e "CREATE USER '$username'@'$hostname' IDENTIFIED BY '$userpassword'"
-
-mysql -e "CREATE DATABASE $phpmyadmin_db;"
-mysql -e "GRANT ALL PRIVILEGES ON $phpmyadmin_db.* TO '$username'@'$hostname';"
-mysql -e "FLUSH PRIVILEGES;"
-
-mysql -e "CREATE DATABASE $wp_db;"
-mysql -e "GRANT ALL PRIVILEGES ON $wp_db.* TO '$username'@'$hostname';"
-mysql -e "FLUSH PRIVILEGES;"
+echo "CREATE DATABASE wordpress;" | mysql -u root --skip-password
+echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTION;" | mysql -u root --skip-password
+echo "update mysql.user set plugin='mysql_native_password' where user='root';" | mysql -u root --skip-password
+echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
