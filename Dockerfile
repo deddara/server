@@ -16,8 +16,8 @@ COPY srcs/database_creation.sh /var/
 COPY srcs/wp-config.php /var/www/deddara/wordpress
 COPY srcs/phpmyadmin.inc.php /var/deddara/phpMyAdmin-4.9.5-all-languages
 
-RUN service mysql start
 
+RUN bash /var/database_creation.sh
 
 
 EXPOSE 80
