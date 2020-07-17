@@ -33,4 +33,5 @@ EXPOSE 80 443
 
 #server starter
 COPY srcs/run_server.sh /var/
+COPY srcs/autoindexing.sh /var/
 CMD bash /var/run_server.sh

@@ -1,7 +1,7 @@
 server {
 	listen 80;
 	listen [::]:80;
-	server_name deddara;
+	server_name localhost;
 	return 301 https://$host$request_uri;
 }
 
@@ -10,13 +10,13 @@ server{
 	listen 443 ssl ;
 	listen [::]:443 ssl ;
 	
-	server_name deddara;
+	server_name localhost;
 	
 	ssl_certificate /etc/nginx/ssl/deddara.pem;
 	ssl_certificate_key /etc/nginx/ssl/deddara.key;
 
 	root /var/www/deddara;
-	index index.html index.htm index.nginx-debian.html index.php;
+	index index.html index.htm index.php;
 
 	location / {
 		autoindex on;
